@@ -3,7 +3,7 @@ import { db } from '../../db';
 import { WithId } from 'mongodb';
 
 export const DataPackage = z.object({
-    package_id: z.number(),
+    // package_id: z.number(),
     name: z.string(),
     type: z.string(),
     price: z.number().min(0),
