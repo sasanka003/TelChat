@@ -88,9 +88,7 @@ def get_my_expired_voice_packages(mobile_number: str) -> dict:
         return response.json()
     else:
         response.raise_for_status()
-    
-    
-        
+            
 
 @tool
 def recharge_account(mobile_number: str, amount: float) -> dict:

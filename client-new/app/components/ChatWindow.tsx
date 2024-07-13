@@ -12,6 +12,7 @@ import "highlight.js/styles/gradient-dark.css";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 export function ChatWindow(props: {
   apiBaseUrl: string;
   placeholder?: string;
@@ -68,7 +69,7 @@ export function ChatWindow(props: {
           message: messageValue,
           history: chatHistory,
           conversation_id: conversationId,
-          number: "0772143515"
+          number: "0722222222"
         }),
       });
     } catch (e) {

@@ -3,6 +3,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { emojisplosion } from "emojisplosion";
 import { useState } from "react";
 
+export function printMessage(message: string) {
+  console.log(message);
+}
+
 export type Message = {
   id: string;
   createdAt?: Date | undefined;
@@ -25,6 +29,21 @@ export function ChatMessageBubble(props: {
   const alignmentClassName =
     props.message.role === "user" ? "ml-auto" : "mr-auto";
   const prefix = props.message.role === "user" ? "🧑" : props.aiEmoji;
+
+  const beautifyMessageContent = (content: string) => {
+    return content
+      .replace(/\\n/g, "\n")
+      .replace(/\\t/g, "\t")
+      .replace(/\\r/g, "\r")
+      .replace(/\\b/g, "\b")
+      .replace(/\\f/g, "\f")
+      .replace(/\\v/g, "\v")
+      .replace(/\\0/g, "\0")
+      .replace(/\\'/g, "'")
+      .replace(/\\"/g, '"');
+  }
+
+  const [messageContent, setMessageContent] = useState(beautifyMessageContent(props.message.content));
 
   const [feedbackColor, setFeedbackColor] = useState("");
 
@@ -72,7 +91,7 @@ export function ChatMessageBubble(props: {
         <div className="mr-2">{prefix}</div>
         <div
           className="whitespace-pre-wrap"
-          dangerouslySetInnerHTML={{ __html: props.message.content }}
+          dangerouslySetInnerHTML={{ __html: messageContent }}
         ></div>
       </div>
       {props.message.role !== "user" && props.isMostRecent && props.messageCompleted && (
