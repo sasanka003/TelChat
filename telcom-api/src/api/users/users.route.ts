@@ -19,6 +19,8 @@ router.get('/:connectionNumber/voice_packages/expired', UserHandlers.getExpiredV
 
 router.post('/:connectionNumber/data_packages/activate', UserHandlers.activateDataPackage);
 router.post('/:connectionNumber/voice_packages/activate', UserHandlers.activateVoicePackage);
+router.get('/:connectionNumber/loan', UserHandlers.checkIsOnLoan);
+router.post('/:connectionNumber/loan', UserHandlers.getLoan);
 
 
 export default router;
