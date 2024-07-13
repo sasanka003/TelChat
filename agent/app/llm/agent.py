@@ -10,8 +10,9 @@ from langchain.agents import create_tool_calling_agent
 from langchain.agents import AgentExecutor
 from llm.tools.account_info import get_account_balance, get_data_packages, get_voice_packages, recharge_account, get_account_info, get_my_active_data_packages, get_my_expired_data_packages, get_my_active_voice_packages, get_my_expired_voice_packages
 from llm.tools.retriever import retriever_tool
+from llm.tools.customer_qa import customer_qa
 
-tools = [retriever_tool,get_account_info, get_account_balance, recharge_account, get_data_packages, get_voice_packages, get_my_active_data_packages, get_my_expired_data_packages, get_my_active_voice_packages, get_my_expired_voice_packages]
+tools = [customer_qa, retriever_tool,get_account_info, get_account_balance, recharge_account, get_data_packages, get_voice_packages, get_my_active_data_packages, get_my_expired_data_packages, get_my_active_voice_packages, get_my_expired_voice_packages]
 llm = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0)
 
 prompt = ChatPromptTemplate.from_messages([
