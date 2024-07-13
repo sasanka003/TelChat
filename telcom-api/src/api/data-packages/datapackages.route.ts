@@ -7,6 +7,7 @@ router.get('/', DataPackageHandlers.findAll);
 router.get('/:id', DataPackageHandlers.findById);
 router.post('/', DataPackageHandlers.createOne);
 router.get('/type/:type', DataPackageHandlers.findByType);
+router.post('/findIdByName', DataPackageHandlers.findIdByName);
 
 
 export default router;

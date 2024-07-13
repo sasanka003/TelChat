@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { DataPackage, DataPackageWithId, DataPackages } from "./datapackages.model";
-import { InsertOneResult , ObjectId} from "mongodb";
+import { InsertOneResult, ObjectId } from "mongodb";
 import { ZodError } from "zod";
 
 export async function findAll(req: Request, res: Response<DataPackageWithId[]>, next: NextFunction) {
@@ -52,3 +52,23 @@ export async function createOne(req: Request<{}, InsertOneResult<DataPackage>, D
         next(error);
     }
 }
+
+export async function findIdByName(req: Request<any, any, DataPackage>, res: Response<any>, next: NextFunction) {
+    const { name } = req.body;
+
+    try {
+        const result = await DataPackages.findOne({ name });
+
+        if (result) {
+            // Convert MongoDB _id to string and return
+            res.json({ _id: result._id.toString() });
+        } else {
+            res.status(404).json({ error: `Data Package with name '${name}' not found` });
+        }
+    } catch (error) {
+        next(error);
+    }
+}
+
+
+
