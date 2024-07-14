@@ -7,8 +7,8 @@ export default function Home() {
       <ToastContainer />
       <ChatWindow
         apiBaseUrl={process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000"}
-        titleText="AI Assistant"
-        placeholder="What is LangChain Expression Language?"
+        titleText="TelChat"
+        // placeholder="What is LangChain Expression Language?"
       ></ChatWindow>
     </>
   );

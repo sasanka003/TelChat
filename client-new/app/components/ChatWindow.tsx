@@ -69,7 +69,7 @@ export function ChatWindow(props: {
           message: messageValue,
           history: chatHistory,
           conversation_id: conversationId,
-          number: "0722222222"
+          number: "0761234567"
         }),
       });
     } catch (e) {

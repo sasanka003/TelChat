@@ -8,7 +8,7 @@ export function EmptyState(props: {
   }
   return (
     <div className="p-8 rounded bg-[#25252d] flex flex-col items-center">
-      <h1 className="text-4xl mb-4">AI Assistant</h1>
+      <h1 className="text-4xl mb-4">TelChat</h1>
       <div className="flex w-full mt-12">
         <div onMouseUp={handleClick} className="p-4 mr-4 border rounded grow max-w-[50%] flex items-center justify-center text-center min-h-[84px] cursor-pointer hover:border-sky-600">
           What is my account balance?
